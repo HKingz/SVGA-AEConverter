@@ -609,7 +609,7 @@ class Converter {
                     y: position[1] - size[1] / 2.0,
                     width: size[0],
                     height: size[1],
-                    cornerRadius: Math.min(size[0] / 2.0, layer.property('Roundness').valueAtTime(cTime, false)),
+                    cornerRadius: Math.min(Math.min(size[0] / 2.0, layer.property('Roundness').valueAtTime(cTime, false)), Math.min(size[1] / 2.0, layer.property('Roundness').valueAtTime(cTime, false))),
                 },
                 styles: this.requestShapeStyles(layer, parent, cTime),
                 transform: this.requestShapeTransform(parent, cTime),
